@@ -1,2 +1,2 @@
 # FixedMemoryAlloc
-C library of a block memory allocator.  The allocator allows allocating and freeing one fixed size block from a static memory pool. 
+C library of a block memory allocator.  The allocator allows allocating and freeing one fixed size block from a static memory pool. The block and pool sizes are fixed during program execution, but are configurable during project build. The library is adapted to work on Embedded platforms of various bit depths. The allocator should work correctly in programs with RTOS preemptive multitasking due to the inclusion of a boolean mutex variable, which can be relaced . 
