@@ -6,7 +6,7 @@ This is a simple C library of a block memory allocator. The allocator allows all
 #define FMA_BIT_DEPTH		32U
 ```
 
-2. Call `#define FMALLOC_CTOR(objName, blockSz, nBlocks)` in your source file. The macro declares a static `tFMAlloc` struct, an associated buffer and a handler (pointer) with the name `objName` type and reserves the aligned memory blocks of size `blockSz` and number `nBlocks`. Note that if `blockSz` is not aligned to `FMA_BIT_DEPTH`, the library automtically rounds-up the allocation for alignment.
+2. Call `#define FMALLOC_CTOR(objName, blockSz, nBlocks)` in your source file. The macro declares a static `tFMAlloc` struct, an associated buffer and a handler (pointer) with the name `objName` and reserves the aligned memory blocks of size `blockSz` and number `nBlocks`. Note that if `blockSz` is not aligned to `FMA_BIT_DEPTH`, the library automtically rounds-up the allocation for alignment.
 ```cpp
 #include "fxdMemAlloc.h"
 #define TEST_BLOCK_SIZE 35
@@ -16,7 +16,7 @@ This is a simple C library of a block memory allocator. The allocator allows all
  given block size and blok number */
 FMALLOC_CTOR(test32, TEST_BLOCK_SIZE, TEST_BLOCK_NUM); /* Pointer/handler with the name test32 is created */
 ```
-3. For allocating a memory block, call the struct method `fn_alloc(phandler)` where phandler is a pointer to the `tFMAlloc` created in 2. The fuction returns a pointer to the allocated memory block, or `NULL` if the handler is full. For freeing a block, call `vfn_free(phandler, pblock)`, where `pblock` is the block to be freed. See the example below.
+3. For allocating a memory block, call the struct method `fn_alloc(phandler)` where `phandler` is a pointer to the `tFMAlloc` created in **2**. The fuction returns a pointer to the allocated memory block, or `NULL` if the handler is full. For freeing a block, call `vfn_free(phandler, pblock)`, where `pblock` is the block to be freed. See the example below.
 ``` cpp
 #include "stdio.h"
 #include "stdbool.h"
@@ -76,6 +76,6 @@ int main()
 ```
 
 <p> 
-<p>An example of the output is given in the image below
-![image](https://user-images.githubusercontent.com/20101804/216818995-a2804447-6fd6-46d2-bb1d-fdac998c9be4.png)
+<p>An example of the output is given in the image below <p>
+![Allocator output](https://user-images.githubusercontent.com/20101804/216818995-a2804447-6fd6-46d2-bb1d-fdac998c9be4.png)
 
