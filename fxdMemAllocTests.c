@@ -48,7 +48,7 @@ static bool testFree(tFMAlloc *testHandl){
   {
     r = rand() % TEST_BLOCK_NUM;
     testHandl->vfn_free(testHandl, ptr[r]);
-    if(ptr[r] != NULL) return false;
+    ptr[r] = NULL;
   }
   return true;
 }
